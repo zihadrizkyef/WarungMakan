@@ -14,6 +14,9 @@ interface WarungDao {
     @Query("SELECT * FROM Warung LIMIT :offset, :perPage")
     suspend fun getList(offset: Int, perPage: Int): List<Warung>
 
+    @Query("SELECT * FROM Warung WHERE isActive = :isActive LIMIT :offset, :perPage")
+    suspend fun getList(offset: Int, perPage: Int, isActive: Boolean): List<Warung>
+
     @Query("SELECT * FROM Warung WHERE id = :id")
     suspend fun getDetail(id: Long): Warung
 
@@ -28,4 +31,10 @@ interface WarungDao {
 
     @Query("SELECT COUNT(id) FROM Warung")
     suspend fun getWarungCount(): Int
+
+    @Query("SELECT COUNT(id) FROM Warung WHERE isActive")
+    suspend fun getActiveWarungCount(): Int
+
+    @Query("SELECT COUNT(id) FROM Warung WHERE NOT isActive")
+    suspend fun getInactiveWarungCount(): Int
 }

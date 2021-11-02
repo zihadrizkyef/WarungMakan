@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Round8">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="Round16">
+        <item name="cornerSize">16dp</item>
+    </style>
+</resources>

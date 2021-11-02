@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/layout/item_warung.xml" value="0.2" />
         <entry key="app/src/main/res/menu/menu_edit_warung.xml" value="0.17037037037037037" />
         <entry key="coreutil/src/main/res/drawable-v24/edit_text_bg_idle.xml" value="0.17314814814814813" />
+        <entry key="coreutil/src/main/res/drawable/bg_circle_white.xml" value="0.16574074074074074" />
         <entry key="coreutil/src/main/res/drawable/edit_text_bg.xml" value="0.17314814814814813" />
         <entry key="coreutil/src/main/res/drawable/edit_text_bg_focussed.xml" value="0.17314814814814813" />
         <entry key="coreutil/src/main/res/layout/custom_edit_text.xml" value="0.17037037037037037" />

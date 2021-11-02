@@ -10,7 +10,8 @@ import com.olsera.warungmakan.databinding.ItemWarungBinding
 
 class WarungViewHolder(private val binding: ItemWarungBinding) :
     RecyclerView.ViewHolder(binding.root) {
-    fun bind(data: Warung, isOdd: Boolean) {
+
+    fun bind(data: Warung, isOdd: Boolean, onClickListener: (warung: Warung) -> Unit) {
         Glide.with(binding.root)
             .load(data.imageUrl)
             .into(binding.imageView)
@@ -23,6 +24,10 @@ class WarungViewHolder(private val binding: ItemWarungBinding) :
             binding.root.setBackgroundColor(Color.parseColor("#EFEFEF"))
         } else {
             binding.root.setBackgroundColor(Color.WHITE)
+        }
+
+        binding.root.setOnClickListener {
+            onClickListener(data)
         }
     }
 }

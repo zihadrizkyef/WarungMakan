@@ -9,3 +9,4 @@ dependencyResolutionManagement {
 rootProject.name = "WarungMakan"
 include ':app'
 include ':repository'
+include ':coreutil'

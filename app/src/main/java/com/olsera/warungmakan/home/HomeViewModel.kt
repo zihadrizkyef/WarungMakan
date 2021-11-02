@@ -49,6 +49,7 @@ class HomeViewModel(private val repository: WarungRepository) : ViewModel() {
         warungCount.value = repository.getWarungCount()
     }
 
+    //init{generateRandom()}
     private fun generateRandom() = viewModelScope.launch {
         val count = Random.nextInt(70, 150)
         val lorem = LoremIpsum.getInstance()
@@ -61,8 +62,8 @@ class HomeViewModel(private val repository: WarungRepository) : ViewModel() {
                     lorem.city,
                     lorem.country,
                     lorem.zipCode,
-                    Random.nextDouble(5.0),
-                    Random.nextDouble(5.0),
+                    (-90+Random.nextInt(180)).toDouble(),
+                    (-180+Random.nextInt(360)).toDouble(),
                     lorem.getParagraphs(1, 2),
                     Random.nextInt(5) != 1
                 )

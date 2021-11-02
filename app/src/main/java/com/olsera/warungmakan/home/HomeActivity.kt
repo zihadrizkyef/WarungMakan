@@ -1,10 +1,9 @@
 package com.olsera.warungmakan.home
 
 import android.app.ProgressDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.olsera.repository.model.Warung
 import com.olsera.warungmakan.R
@@ -12,9 +11,14 @@ import com.olsera.warungmakan.databinding.ActivityHomeBinding
 import com.olsera.warungmakan.home.adapter.WarungAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.recyclerview.widget.RecyclerView
+import com.olsera.warungmakan.warungeditor.WarungEditorActivity
 
 
 class HomeActivity : AppCompatActivity() {
+    companion object {
+        private const val REQ_CODE_EDITOR = 12
+    }
+
     private val viewModel by viewModel<HomeViewModel>()
     private val dataList = arrayListOf<Warung>()
     private lateinit var adapter: WarungAdapter
@@ -31,9 +35,22 @@ class HomeActivity : AppCompatActivity() {
         viewModel.getWarungCount()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQ_CODE_EDITOR && resultCode == RESULT_OK) {
+            viewModel.pageParam = 0
+            viewModel.getList()
+            viewModel.getWarungCount()
+        }
+    }
+
     private fun setupView() {
         val layoutManager = LinearLayoutManager(this)
-        adapter = WarungAdapter(dataList)
+        adapter = WarungAdapter(dataList) {
+            val intent = WarungEditorActivity.createIntent(this, it.id)
+            startActivityForResult(intent, REQ_CODE_EDITOR)
+        }
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -71,6 +88,11 @@ class HomeActivity : AppCompatActivity() {
                     viewModel.getList()
                 }
             }
+        }
+
+        binding.buttonAddWarung.setOnClickListener {
+            val intent = WarungEditorActivity.createIntent(this)
+            startActivityForResult(intent, REQ_CODE_EDITOR)
         }
     }
 

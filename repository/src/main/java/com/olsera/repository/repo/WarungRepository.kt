@@ -12,6 +12,7 @@ import kotlin.random.Random
 
 class WarungRepository(private val db: AppDatabase) {
     suspend fun saveWarung(warung: Warung): Result<Long> {
+        delay(Random.nextLong(500L))
         val id = db.warungDao().insertAll(warung).first()
         return Result.success(id)
     }
@@ -41,6 +42,7 @@ class WarungRepository(private val db: AppDatabase) {
 
     suspend fun getWarungDetail(id: Long): Result<Warung> {
         return try {
+            delay(Random.nextLong(500L))
             Result.success(db.warungDao().getDetail(id))
         } catch (e: Exception) {
             Result.failure(Throwable("Gagal mengambil data"))
@@ -48,10 +50,12 @@ class WarungRepository(private val db: AppDatabase) {
     }
 
     suspend fun updateWarung(warung: Warung) {
+        delay(Random.nextLong(500L))
         db.warungDao().update(warung)
     }
 
     suspend fun deleteWarung(id: Long) {
+        delay(Random.nextLong(500L))
         db.warungDao().deleteById(id)
     }
 

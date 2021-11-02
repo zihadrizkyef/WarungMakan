@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_editor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".warungeditor.WarungEditorActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Buat Warung"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/buttonDelete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/ic_baseline_delete"
+            app:tint="#871313" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="0dp">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/buttonActive"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:background="@color/editor_status_radio_bg"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="Active"
+                        android:textColor="@color/editor_status_radio_text" />
+
+                    <RadioButton
+                        android:id="@+id/buttonInactive"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:background="@color/editor_status_radio_bg"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="Inactive"
+                        android:textColor="@color/editor_status_radio_text" />
+
+                </RadioGroup>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Location Address"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Map" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <fragment
+                    android:id="@+id/mapView"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="4dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/buttonEditMap"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_margin="16dp"
+                    android:background="@color/white"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_baseline_edit_24"
+                    app:tint="@color/design_default_color_secondary" />
+            </FrameLayout>
+
+            <com.olsera.coreutil.CustomEditText
+                android:id="@+id/inputName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:label="Name" />
+
+            <com.olsera.coreutil.CustomEditText
+                android:id="@+id/inputAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:label="Address" />
+
+            <com.olsera.coreutil.CustomEditText
+                android:id="@+id/inputCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:label="City" />
+
+            <com.olsera.coreutil.CustomEditText
+                android:id="@+id/inputZipCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:label="Zip Code" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonCancel"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_weight="1"
+            android:paddingVertical="12dp"
+            android:stateListAnimator="@null"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="#252525"
+            app:backgroundTint="#FAFAFA" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSave"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_weight="1"
+            android:paddingVertical="12dp"
+            android:stateListAnimator="@null"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:backgroundTint="#55B264" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -19,3 +19,6 @@ rootProject.name = "WarungMakan"
 include ':app'
 include ':repository'
 include ':coreutil'
+include ':printer'
+include ':printer:libsaar'
+include ':printer:sunmids'

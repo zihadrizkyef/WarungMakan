@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.olsera.warungmakan">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -9,7 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".CustomApplication"
+        android:name="com.olsera.warungmakan.CustomApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WarungMakan">
         <activity
-            android:name=".home.HomeActivity"
+            android:name="com.olsera.warungmakan.home.HomeActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -27,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".warungeditor.WarungEditorActivity"
+            android:name="com.olsera.warungmakan.warungeditor.WarungEditorActivity"
             android:exported="false"
             android:label="@string/edit_warung"
             android:windowSoftInputMode="adjustResize"
@@ -37,7 +36,7 @@
             android:name="com.adevinta.leku.LocationPickerActivity"
             android:exported="false"
             android:label="@string/leku_title_activity_location_picker"
-            android:parentActivityName=".home.HomeActivity"
+            android:parentActivityName="com.olsera.warungmakan.home.HomeActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -49,12 +48,12 @@
                 android:resource="@xml/leku_searchable" />
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".home.HomeActivity" />
+                android:value="com.olsera.warungmakan.home.HomeActivity" />
         </activity>
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+<!--        <meta-data-->
+<!--            android:name="com.google.android.geo.API_KEY"-->
+<!--            android:value="${MAPS_API_KEY}" />-->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

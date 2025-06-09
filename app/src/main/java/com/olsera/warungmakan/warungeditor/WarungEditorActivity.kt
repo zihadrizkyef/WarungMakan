@@ -4,28 +4,24 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.google.android.gms.maps.*
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.olsera.warungmakan.R
-import com.olsera.warungmakan.databinding.ActivityWarungEditorBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import android.location.LocationManager
 import android.content.pm.PackageManager
-import android.location.Address
-import android.util.Log
+import android.location.LocationManager
+import android.os.Bundle
 import android.widget.Toast
-
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isGone
 import com.adevinta.leku.*
-import com.adevinta.leku.locale.SearchZoneRect
+import com.google.android.gms.maps.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 import com.olsera.repository.model.Warung
 import com.thedeanda.lorem.LoremIpsum
+import com.zr.warungmakan.databinding.ActivityWarungEditorBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.zr.warungmakan.R
 import kotlin.random.Random
 
 

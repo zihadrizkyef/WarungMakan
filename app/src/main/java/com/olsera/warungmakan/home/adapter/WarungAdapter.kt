@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.olsera.repository.model.Warung
-import com.olsera.warungmakan.databinding.ItemWarungBinding
+import com.zr.warungmakan.databinding.ItemWarungBinding
 
 class WarungAdapter(
     private val dataList: ArrayList<Warung>,

@@ -1,12 +1,11 @@
 package com.olsera.warungmakan.home.adapter
 
 import android.graphics.Color
-import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.olsera.repository.model.Warung
-import com.olsera.warungmakan.databinding.ItemWarungBinding
+import com.zr.warungmakan.databinding.ItemWarungBinding
 
 class WarungViewHolder(private val binding: ItemWarungBinding) :
     RecyclerView.ViewHolder(binding.root) {
